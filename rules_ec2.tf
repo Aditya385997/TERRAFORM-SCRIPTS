@@ -8,7 +8,7 @@ resource "aws_security_group" "bastion_server_sg" {
   ingress {
     from_port = 22
     to_port   = 22
-    protocol  = "ssh"
+    protocol  = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
