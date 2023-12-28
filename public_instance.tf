@@ -11,6 +11,12 @@ resource "aws_security_group" "bastion_server_sg" {
     protocol  = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+   egress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Replace with the CIDR block of your private instances
+  }
 }
 
 
