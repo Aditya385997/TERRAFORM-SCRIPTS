@@ -39,7 +39,7 @@ resource "aws_security_group" "load_balancer_sg" {
 
 resource "aws_lb" "load_balancer" {
   name               = "upgrad-load-balancer"
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load_balancer_sg.id]
   subnets            = [aws_subnet.public-subnet-1.id, aws_subnet.public-subnet-2.id]
