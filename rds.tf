@@ -1,6 +1,6 @@
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "my_sql_database" {
   allocated_storage    = 10
-  db_name              = "mydb"
+  db_name              = "my_practise_database"
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
@@ -8,9 +8,9 @@ resource "aws_db_instance" "default" {
   password             = "admin"
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
-  db_subnet_group_name = aws_db_subnet_group.public-subnet-1
+  db_subnet_group_name = aws_db_subnet_group.public-subnets.names
 }
-resource "aws_db_subnet_group" "public-subnet-1" {
+resource "aws_db_subnet_group" "public-subnets" {
   name       = "public_subnet_group"
-  subnet_ids = [aws_subnet.public-subnet-1] # Public subnets
+  subnet_ids = [aws_subnet.public-subnet-1.id,aws_subnet.public-subnet-2.id] 
 }
