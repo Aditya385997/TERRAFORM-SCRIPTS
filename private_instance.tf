@@ -24,6 +24,12 @@ resource "aws_security_group" "app_server_sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] # Replace with the CIDR block of your private instances
   }
+  egress  {
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
 }
 
