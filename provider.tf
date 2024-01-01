@@ -5,6 +5,13 @@ terraform {
       version = "5.31.0"
     }
   }
+  backend "s3" {
+    bucket = "upgrad-12213" //s3 bucket name
+    key    = "states/terraform.tfstate"//s3 bucket object to store
+    region = "us-east-1"
+    dynamodb_table = "terraform"//dynamodb name
+  }
+
 }
 
 provider "aws" {
