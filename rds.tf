@@ -8,7 +8,7 @@ resource "aws_db_instance" "my_sql_database" {
   password             = "admin"
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
-  db_subnet_group_name = aws_db_subnet_group.public-subnets.names
+  db_subnet_group_name = aws_db_subnet_group.public-subnets.name
 }
 resource "aws_db_subnet_group" "public-subnets" {
   name       = "public_subnet_group"
